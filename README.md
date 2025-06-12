@@ -1,9 +1,9 @@
-# docker-{DISTRO}-systemd
+# docker-rocky9-systemd
 
-[![CI](https://github.com/trfore/docker-image/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/trfore/docker-image/actions/workflows/ci.yml)
-[![CD](https://github.com/trfore/docker-image/actions/workflows/cd.yml/badge.svg?branch=main)](https://github.com/trfore/docker-image/actions/workflows/cd.yml)
+[![CI](https://github.com/makanu/docker-image/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/trfore/docker-image/actions/workflows/ci.yml)
+[![CD](https://github.com/makanu/docker-image/actions/workflows/cd.yml/badge.svg?branch=main)](https://github.com/trfore/docker-image/actions/workflows/cd.yml)
 
-A minimal systemd enabled {DISTRO} Docker image for testing Ansible roles with Molecule.
+A minimal systemd enabled rocky9 Docker image for testing Ansible roles with Molecule.
 
 NOTE: This image does NOT contain Ansible tooling, e.g. `ansible-core` or `yamllint`. Thus, the use case is as target
 host for Ansible controllers or within the Molecule `create`/`converge`/`test` cycle.
@@ -11,7 +11,7 @@ host for Ansible controllers or within the Molecule `create`/`converge`/`test` c
 ## Docker Pull Command
 
 ```sh
-docker pull trfore/docker-{DISTRO}-systemd
+docker pull makanu/docker-rocky9-systemd
 ```
 
 ## How to Build
@@ -23,14 +23,14 @@ or merged to the `main` branch. But if you need to build the image on your own l
 2. Clone the repo
 
    ```sh
-   git clone https://github.com/trfore/docker-{DISTRO}-systemd.git
+   git clone https://github.com/makanu/docker-rocky9-systemd.git
    ```
 
 3. `cd` into the directory
 4. Run
 
    ```sh
-   docker build --tag trfore/docker-{DISTRO}-systemd .
+   docker build --tag makanu/docker-rocky9-systemd .
    ```
 
 ## How to Use
@@ -42,7 +42,7 @@ or merged to the `main` branch. But if you need to build the image on your own l
   ```yaml
   platforms:
     - name: instance
-      image: trfore/docker-{DISTRO}-systemd:latest
+      image: makanu/docker-rocky9-systemd:latest
       tmpfs:
         - /run
         - /tmp
@@ -56,17 +56,17 @@ or merged to the `main` branch. But if you need to build the image on your own l
 ### Interactively Using Docker
 
 - Install [docker]
-- Build an image locally (see above) or pull from Docker Hub: `docker pull trfore/docker-{DISTRO}-systemd:latest`
+- Build an image locally (see above) or pull from Docker Hub: `docker pull makanu/docker-rocky9-systemd:latest`
 - Run a container from the image:
 
   ```sh
-  docker run -d -it --name {DISTRO}-systemd --privileged --cgroupns=host --tmpfs=/run --tmpfs=/tmp --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw trfore/docker-{DISTRO}-systemd:latest
+  docker run -d -it --name rocky9-systemd --privileged --cgroupns=host --tmpfs=/run --tmpfs=/tmp --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw makanu/docker-rocky9-systemd:latest
   ```
 
 - Use it, example:
 
   ```sh
-  docker exec -it {DISTRO}-systemd /bin/bash
+  docker exec -it rocky9-systemd /bin/bash
   ```
 
 ### Using Podman
@@ -75,7 +75,7 @@ or merged to the `main` branch. But if you need to build the image on your own l
   filesystem. See [Podman Docs: Commands `run --systemd`] for details.
 
   ```sh
-  podman run -d -it --name {DISTRO}-systemd docker.io/trfore/docker-{DISTRO}-systemd:latest
+  podman run -d -it --name rocky9-systemd docker.io/makanu/docker-rocky9-systemd:latest
   ```
 
 ## Additional Images
@@ -88,13 +88,14 @@ or merged to the `main` branch. But if you need to build the image on your own l
 | [Debian 11][debian]              | [docker-debian11-systemd]   | [trfore/docker-debian11-systemd]   |
 | [Debian 12][debian]              | [docker-debian12-systemd]   | [trfore/docker-debian12-systemd]   |
 | [Fedora][fedora]                 | [docker-fedora40-systemd]   | [trfore/docker-fedora40-systemd]   |
+| [Rocky9][rocky]                  | [docker-rocky9-systemd]     | [makanu/docker-rocky9-systemd]     |
 | [Ubuntu 20.04][ubuntu]           | [docker-ubuntu2004-systemd] | [trfore/docker-ubuntu2004-systemd] |
 | [Ubuntu 22.04][ubuntu]           | [docker-ubuntu2204-systemd] | [trfore/docker-ubuntu2204-systemd] |
 | [Ubuntu 24.04][ubuntu]           | [docker-ubuntu2404-systemd] | [trfore/docker-ubuntu2404-systemd] |
 
 ## Maintainers
 
-Taylor Fore (<https://github.com/trfore>)
+MaKaNu (<https://github.com/makanu>)
 
 ## Acknowledgements
 
@@ -110,6 +111,7 @@ docker images for ansible, [geerlingguy/docker-\*-ansible](https://github.com/ge
 - [github runner - ubuntu 22.04] preinstalled software
 
 [centos-stream]: https://quay.io/repository/centos/centos?tab=tags
+[rocky]: https://hub.docker.com/_/rockylinux
 [debian]: https://hub.docker.com/_/debian/
 [fedora]: https://quay.io/repository/fedora/fedora?tab=tags
 [docker]: https://docs.docker.com/engine/installation/
@@ -120,6 +122,7 @@ docker images for ansible, [geerlingguy/docker-\*-ansible](https://github.com/ge
 [docker-debian11-systemd]: https://github.com/trfore/docker-debian11-systemd/blob/main/Dockerfile
 [docker-debian12-systemd]: https://github.com/trfore/docker-debian12-systemd/blob/main/Dockerfile
 [docker-fedora40-systemd]: https://github.com/trfore/docker-fedora40-systemd/blob/main/Dockerfile
+[docker-rocky9-systemd]: https://github.com/makanu/docker-rocky9-systemd/blob/main/Dockerfile
 [docker-ubuntu2004-systemd]: https://github.com/trfore/docker-ubuntu2004-systemd/blob/main/Dockerfile
 [docker-ubuntu2204-systemd]: https://github.com/trfore/docker-ubuntu2204-systemd/blob/main/Dockerfile
 [docker-ubuntu2404-systemd]: https://github.com/trfore/docker-ubuntu2404-systemd/blob/main/Dockerfile
