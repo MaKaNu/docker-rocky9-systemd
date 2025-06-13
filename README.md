@@ -128,6 +128,7 @@ docker images for ansible, [geerlingguy/docker-\*-ansible](https://github.com/ge
 [docker-ubuntu2404-systemd]: https://github.com/trfore/docker-ubuntu2404-systemd/blob/main/Dockerfile
 [trfore/docker-centos8-systemd]: https://hub.docker.com/r/trfore/docker-centos8-systemd
 [trfore/docker-centos9-systemd]: https://hub.docker.com/r/trfore/docker-centos9-systemd
+[makanu/docker-rocky9-systemd]: https://hub.docker.com/r/makanu/docker-rocky9-systemd
 [trfore/docker-debian10-systemd]: https://hub.docker.com/r/trfore/docker-debian10-systemd
 [trfore/docker-debian11-systemd]: https://hub.docker.com/r/trfore/docker-debian11-systemd
 [trfore/docker-debian12-systemd]: https://hub.docker.com/r/trfore/docker-debian12-systemd
