@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   cgroup-v2:
-    uses: trfore/docker-image/.github/workflows/test_systemd.yml@main
+    uses: makanu/docker-image/.github/workflows/test_systemd.yml@main
     with:
       continue-on-error: false
       runner: ubuntu-22.04
