@@ -41,8 +41,9 @@ or merged to the `main` branch. But if you need to build the image on your own l
 
   ```yaml
   platforms:
-    - name: instance
-      image: makanu/docker-rocky9-systemd:latest
+    - name: ${MOLECULE_NAME:-instance}
+      image: ${MOLECULE_IMAGE:-makanu/docker-rocky9-systemd}
+      command: ${MOLECULE_COMMAND:-""}
       tmpfs:
         - /run
         - /tmp
@@ -115,6 +116,7 @@ docker images for ansible, [geerlingguy/docker-\*-ansible](https://github.com/ge
 [debian]: https://hub.docker.com/_/debian/
 [fedora]: https://quay.io/repository/fedora/fedora?tab=tags
 [docker]: https://docs.docker.com/engine/installation/
+[rocky]: https://hub.docker.com/r/rockylinux/rockylinux
 [ubuntu]: https://hub.docker.com/_/ubuntu/
 [docker-centos8-systemd]: https://github.com/trfore/docker-centos8-systemd/blob/main/Dockerfile
 [docker-centos9-systemd]: https://github.com/trfore/docker-centos9-systemd/blob/main/Dockerfile
