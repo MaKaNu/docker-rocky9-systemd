@@ -1,5 +1,5 @@
 ARG BASEOS_DIGEST
-FROM docker.io/library/rockylinux:9${BASEOS_DIGEST:-}
+FROM docker.io/rockylinux/rockylinux:9${BASEOS_DIGEST:-}
 
 ENV container=docker
 
